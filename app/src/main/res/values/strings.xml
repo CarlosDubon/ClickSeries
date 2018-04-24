@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ClickSeries</string>
+    <string name="text_titulo_de_serie">TITULO DE SERIE</string>
+    <string name="text_generic">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto</string>
+    <string name="text_ver">VER</string>
 </resources>

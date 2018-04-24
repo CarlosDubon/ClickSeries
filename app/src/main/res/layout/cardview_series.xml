@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="7dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:id="@+id/img_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/img_serie"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop"
+            />
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_serie"
+            android:background="#AA000000"
+            android:padding="8dp"
+            android:text="@string/text_titulo_de_serie"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/white"
+            />
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_generic"
+            android:layout_below="@id/text_title"
+            android:padding="4dp"
+            android:textColor="@android:color/black"
+
+            />
+        <TextView
+            android:id="@+id/text_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_ver"
+            android:layout_below="@id/text_description"
+            android:background="@android:color/transparent"
+            android:textColor="@color/colorPrimary"
+            android:padding="8dp"
+            />
+        <TextView
+            android:id="@+id/text_fav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_favorite_black_24dp"
+            android:layout_below="@id/text_description"
+            android:layout_alignRight="@id/text_description"
+            android:padding="4dp"
+            android:drawableTint="#BDBDBD"/>
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
