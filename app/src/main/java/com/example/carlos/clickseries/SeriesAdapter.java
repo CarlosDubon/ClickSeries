@@ -1,6 +1,11 @@
 package com.example.carlos.clickseries;
 
+import android.content.Context;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,9 +18,10 @@ import java.util.ArrayList;
 
 public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolderSeriesAdapter>{
 
-    private ArrayList<Serie> serieList = new ArrayList<>();
+    ArrayList<Serie> serieList = new ArrayList<>();
 
-    public SeriesAdapter(ArrayList series){
+
+    public SeriesAdapter( ArrayList<Serie> series){
         serieList = series;
     }
 
@@ -49,11 +55,25 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolder
         holder.desc.setText(serieList.get(position).getDescription());
         holder.imageSerie.setImageResource(serieList.get(position).getImage());
 
+        if(serieList.get(position).isFavorite()){
+            setTextViewDrawableColor(holder.fav,R.color.colorPrimary);
+        }else{
+            setTextViewDrawableColor(holder.fav,R.color.disableIcon);
+        }
+
     }
 
     @Override
     public int getItemCount() {
         return serieList.size();
+    }
+
+    private void setTextViewDrawableColor(TextView textView, int color) {
+        for (Drawable drawable : textView.getCompoundDrawables()) {
+            if (drawable != null) {
+                drawable.setColorFilter(new PorterDuffColorFilter(ContextCompat.getColor(textView.getContext(), color), PorterDuff.Mode.SRC_IN));
+            }
+        }
     }
 
 

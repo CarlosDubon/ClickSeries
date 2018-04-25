@@ -49,7 +49,8 @@ public class Serie {
     public boolean isFavorite() {
         return isFavorite;
     }
+
     public int getImage(){
-        return getImage();
+        return image;
     }
 }
