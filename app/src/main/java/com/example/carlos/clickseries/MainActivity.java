@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 seriesFav.add(serieList.get(index));
                 notifyDataSetChanged();
                 notifyItemInserted(index);
-                adapter_fav.notifyItemInserted(index);
+                int pos = seriesFav.indexOf(serieList.get(index));
+                adapter_fav.notifyItemInserted(pos);
             }
 
             @Override
