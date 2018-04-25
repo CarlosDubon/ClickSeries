@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+//añadir abastract a la clase
 public abstract class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolderSeriesAdapter>{
 
     ArrayList<Serie> serieList = new ArrayList<>();
@@ -59,7 +60,7 @@ public abstract class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.V
         }else{
             setTextViewDrawableColor(holder.fav,R.color.disableIcon);
         }
-
+        //Añadir listener al textview fav para hacer cambio de color y ejecutar los metodos abstractos
         holder.fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +93,7 @@ public abstract class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.V
         }
     }
 
+    //Implementacion de metodos abstractos -se necesita la posicion del array que utiliza el adapter para realizar add or remove y notificarse entre adapters
     public abstract void agregar(int index);
     public abstract void remove(int index);
 

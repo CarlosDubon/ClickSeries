@@ -17,15 +17,23 @@ public class FragmentSerieFav extends Fragment{
 
         View view;
         private RecyclerView recyclerView;
-        private ArrayList<Serie> serieList;
         private SeriesAdapter seriesAdapter;
 
-        public FragmentSerieFav(ArrayList serieList, SeriesAdapter seriesAdapter) {
-            this.serieList=serieList;
-            this.seriesAdapter=seriesAdapter;
+        public FragmentSerieFav() {
+
         }
 
-        @Nullable
+        public static FragmentSerieFav newInstance(SeriesAdapter seriesAdapter){
+            FragmentSerieFav frag =new FragmentSerieFav();
+            frag.setSeriesAdapter(seriesAdapter);
+            return frag;
+        }
+
+        public void setSeriesAdapter(SeriesAdapter seriesAdapter) {
+            this.seriesAdapter = seriesAdapter;
+        }
+
+    @Nullable
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             view = inflater.inflate(R.layout.recyclaview_series_fav,container,false);

@@ -17,11 +17,18 @@ public class FragmentSerie extends Fragment {
 
     View view;
     private RecyclerView recyclerView;
-    private ArrayList<Serie> serieList;
     private SeriesAdapter seriesAdapter;
 
-    public FragmentSerie(ArrayList<Serie> serieList, SeriesAdapter seriesAdapter) {
-        this.serieList = serieList;
+    public FragmentSerie() {
+    }
+
+    public static FragmentSerie newInstance(SeriesAdapter seriesAdapter){
+        FragmentSerie fragmentSerie = new FragmentSerie();
+        fragmentSerie.setSeriesAdapter(seriesAdapter);
+        return fragmentSerie;
+    }
+
+    public void setSeriesAdapter(SeriesAdapter seriesAdapter) {
         this.seriesAdapter = seriesAdapter;
     }
 
