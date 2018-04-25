@@ -5,15 +5,17 @@ public class Serie {
     private String description;
     private String caps;
     private boolean isFavorite = false;
+    private int image;
 
     public Serie() {
     }
 
-    public Serie(String name, String description, String caps, boolean isFavorite) {
+    public Serie(String name, String description, String caps,int image, boolean isFavorite) {
         this.name = name;
         this.description = description;
         this.caps = caps;
         this.isFavorite = isFavorite;
+        this.image = image;
     }
 
     public void setName(String name) {
@@ -46,5 +48,8 @@ public class Serie {
 
     public boolean isFavorite() {
         return isFavorite;
+    }
+    public int getImage(){
+        return getImage();
     }
 }
