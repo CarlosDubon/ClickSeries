@@ -1,6 +1,5 @@
 package com.example.carlos.clickseries;
 
-import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
@@ -16,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolderSeriesAdapter>{
+public abstract class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolderSeriesAdapter>{
 
     ArrayList<Serie> serieList = new ArrayList<>();
 
@@ -50,7 +49,7 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderSeriesAdapter holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolderSeriesAdapter holder, final int position) {
         holder.title.setText(serieList.get(position).getName());
         holder.desc.setText(serieList.get(position).getDescription());
         holder.imageSerie.setImageResource(serieList.get(position).getImage());
@@ -60,6 +59,23 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolder
         }else{
             setTextViewDrawableColor(holder.fav,R.color.disableIcon);
         }
+
+        holder.fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Serie serie = serieList.get(position);
+
+               if (serie.isFavorite()){
+                   setTextViewDrawableColor(holder.fav, R.color.disableIcon);
+                   remove(position);
+               }else{
+                   setTextViewDrawableColor(holder.fav, R.color.colorPrimary);
+                   agregar(position);
+               }
+
+
+            }
+        });
 
     }
 
@@ -75,6 +91,10 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolder
             }
         }
     }
+
+    public abstract void agregar(int index);
+    public abstract void remove(int index);
+
 
 
 }

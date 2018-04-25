@@ -18,9 +18,11 @@ public class FragmentSerie extends Fragment {
     View view;
     private RecyclerView recyclerView;
     private ArrayList<Serie> serieList;
+    private SeriesAdapter seriesAdapter;
 
-    public FragmentSerie(ArrayList<Serie> serieList) {
+    public FragmentSerie(ArrayList<Serie> serieList, SeriesAdapter seriesAdapter) {
         this.serieList = serieList;
+        this.seriesAdapter = seriesAdapter;
     }
 
     @Nullable
@@ -28,7 +30,6 @@ public class FragmentSerie extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.recycleview_series,container,false);
         recyclerView = view.findViewById(R.id.recycleview_series);
-        SeriesAdapter seriesAdapter = new SeriesAdapter(serieList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(seriesAdapter);
         return view;
@@ -37,5 +38,6 @@ public class FragmentSerie extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 }
